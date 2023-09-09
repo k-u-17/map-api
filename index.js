@@ -4,6 +4,7 @@ const dotenv = require("dotenv");
 const app = express();
 const pinRoute=require("./routes/pins")
 const userRoute=require("./routes/users")
+const cors = require('cors');
 
 dotenv.config();
 
@@ -26,6 +27,8 @@ connectDB();
 
 app.use("/api/pins",pinRoute);
 app.use("/api/users",userRoute);
+
+app.use(cors());
 
 
 app.listen(8802, () => {
